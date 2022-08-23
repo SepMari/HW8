@@ -8,14 +8,14 @@ public class Main {
     }
 
     //Задание 1
-    public static void printLeapYear (int leapYear) {
+    private static void printLeapYear (int leapYear) {
         System.out.println(leapYear + " год является високосным");
     }
-    static void printNotLeapYear (int notLeapYear) {
+    private static void printNotLeapYear (int notLeapYear) {
         System.out.println(notLeapYear + " год не является високосным");
     }
 
-    public static void task1() {
+    private static void task1() {
         // Здесь пишем код первого задания
         int year = 2022;
 
@@ -27,7 +27,8 @@ public class Main {
     }
 
     //Задание 2
-    static void printClient (int clientOS, int currentYear, int clientDeviceYear) {
+    private static void printClient (int clientOS, int clientDeviceYear) {
+        int currentYear = LocalDate.now().getYear();
 
         if (clientOS == 1 && clientDeviceYear > currentYear) {
             System.out.println("Установите lite-версию приложения для Android по ссылке");
@@ -40,17 +41,16 @@ public class Main {
         }
     }
 
-    public static void task2() {
+    private static void task2() {
 
         int clientOS = 1;
         int clientDeviceYear = 2017;
-        int currentYear = LocalDate.now().getYear();
 
-        printClient(clientOS, clientDeviceYear, currentYear);
+        printClient(clientOS, clientDeviceYear);
     }
 
     //Задание 3
-    static int dayDeliveryDistancePrint (int deliveryDistance, int day) {
+    private static int dayDeliveryDistance (int deliveryDistance, int day) {
             int dayDelivery = day;
 
             if (deliveryDistance > 20) {
@@ -59,16 +59,17 @@ public class Main {
             if (deliveryDistance > 60) {
                 dayDelivery++;
             }
-            System.out.println(dayDelivery);
             return dayDelivery;
     }
 
-    public static void task3() {
+    private static void task3() {
         int deliveryDistance = 95;
         int day=1;
 
-        dayDeliveryDistancePrint(deliveryDistance, day);
+        dayDeliveryDistance(deliveryDistance, day);
 
+        int resultDay = dayDeliveryDistance(deliveryDistance, day);
+        System.out.println(resultDay);
     }
 
 }
